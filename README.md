@@ -77,4 +77,4 @@ Si todos los comandos muestran información de la versión instalada, la instala
 
 # Uso del código LaTex
 
-La estructura del archivo contempla el archivo principal main.tex que contiene el código limpio (sin comentarios) para compilar la plantilla, aunque el archivo "MAIN\_COMENTADO.tex" que contiene el mismo código pero ampliamente comentado.
+La estructura del archivo contempla el archivo principal main.tex que contiene el código limpio (sin comentarios) para compilar la plantilla. El archivo "MAIN\_COMENTADO.tex" contiene el mismo código pero ampliamente comentado.
