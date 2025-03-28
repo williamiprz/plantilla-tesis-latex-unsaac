@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PARA VER EL MISMO CÓDIGO CON LOS COMENTARIOS COMPLETOS Y LAS CONSIDERACIONES NECESARIAS PARA SU MODIFICACIÓN, ABRIR EL ARCHIVO "MAIN_COMENTADO.tex"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper, 12pt, openany, oneside]{book}
+\input{preambulo.tex}
+
+\begin{document}
+    \input{0_portada.tex} % Modificar con datos personales
+
+    \frontmatter
+    \input{1_dedicatoria.tex}
+    \input{2_agradecimientos.tex}
+    \input{3_indices.tex} % ¡IMPORTANTE!
+    \input{4_resumen.tex}
+    \input{5_introduccion.tex}
+   
+    \mainmatter
+    \input{capitulos/1_generalidades.tex}
+    \input{capitulos/2_antecedentes_marco_teorico.tex}
+    \input{capitulos/3_ejemplos_figuras_tablas_formulas.tex}
+
+    \input{capitulos/z_conclusiones.tex} % ¡IMPORTANTE!
+    \input{capitulos/z_recomendaciones.tex} % ¡IMPORTANTE!
+
+    \input{bibliografia.tex} % ¡IMPORTANTE!
+
+    \appendix
+    \input{apendices/codigo.tex}
+
+\end{document}

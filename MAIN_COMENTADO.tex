@@ -1,0 +1,44 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANTE: PARA VER EL MISMO CÓDIGO MÁS LIMPIO Y SIN COMENTARIOS, ABRIR EL ARCHIVO "main.tex", CONTIENE EL MISMO CÓDIGO PERO SIN COMENTARIOS EXPLICATIVOS. LA ESTRUCTURA Y TÍTULOS DE CAPÍTULOS Y SUBCAPÍTULOS SON REFERENCIALES, MODIFICAR DE ACUERDO A SU NECESIDAD.
+% LOS ARCHIVOS QUE DEBEN EVITAR SER ELIMINADOS O MODIFICADOS SON preambulo.tex, bibliografia.tex, bibliografia.bib, 0_portada.tex, 3_indices.tex (este puede ser modificado de nombre, pero no de contenido). Los demás archivos, son modificables, eliminables y se espera que cada quien coloque sus propios archivos.tex.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DOCUMENTO DE TIPO LIBRO, TAMAÑO A4 Y LETRA DE 12pt: Tipo {book}, Tamaño de hoja {A4}, Tamaño de letra {12pt}, eliminación de páginas en blanco con {oneside}, si se desea imprimir en doble cara y asegurar el formato, borrar configuración "oneside" (eso aumentaría páginas en blanco).
+\documentclass[a4paper, 12pt, openany, oneside]{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANTE, CONFIGURACIONES Y PAQUETES PRINCIPALES: "preámbulo.tex" contiene la definición del documento: se incluyen paquetes para la compatibilidad de diferentes caracteres, configuraciones de márgenes {2.54cm}, configuraciones de descripciones o pie de figuras y tablas para que se adecúen al formato APA (alineados hacia la izquierda, en negrita y cursiva, revisar formato APA), inclusión de paquetes para matemáticas, e inclusión de código, configuración de bibliografía con biblatex y se añade al archivo "bibliografia.bib" como fuente bibligráfica.
+\input{preambulo.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INICIO DEL DOCUMENTO Y RENDERIZACIÓN PDF %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+    % IMPORTANTE, CONFIGURACIONES DE PORTADA: En el archivo "0_portada.tex", modificar los datos personales e institucionales necesarios y, si es preciso, modificar el logo del escudo en "figuras/logo.png".
+    \input{0_portada.tex}
+
+    % FRONTMATTER: cambia a numeración romana para colocar Dedicatoria, Agradecimientos, Índices, Resumen (abstract) e Introducción (modificable de acuerdo a su interés, puede crear su respectivo archivo "xxx.tex" e incluirlo con \input{xxx.tex}). El archivo "3_indices.tex", tiene la configuración de importación de los índices, cuidado al modificarlo o eliminarlo, puede ser colocado en otro orden y cambiarle el nombre si es necesario, pero evitar modificar su contenido.
+    \frontmatter
+    \input{1_dedicatoria.tex}
+    \input{2_agradecimientos.tex}
+    \input{3_indices.tex} % ¡IMPORTANTE!
+    \input{4_resumen.tex}
+    \input{5_introduccion.tex}
+    
+    % MAINMATTER: cambia a numeración arábiga y comienza el contenido de la tesis, se agregan los capítulos incluyendo los archivos con el comando "\input{capitulos/1_xxx.tex}", aquí unos ejemplos. Dentro de cada capítulo, se organizan en jerarquías: Capítulo (mediante \chapter{}, Capítulo 1), Sección (\section{}, 1.1.), Subsección (\subsection{}, 1.1.1.), Subsubsección (\subsubsection{}, negrita).
+    \mainmatter
+    \input{capitulos/1_generalidades.tex}
+    \input{capitulos/2_antecedentes_marco_teorico.tex}
+    \input{capitulos/3_ejemplos_figuras_tablas_formulas.tex}
+    % Añadir otros capítulos
+    % Finalmente, en los capítulos Conclusiones y Recomendaciones es importante evitar modificarlos por sus configuraciones especiales. A diferencia de otros capítulos convencionales, estos cuando son renderizados no comienzan con CAPÍTULO XXX Conclusiones, sino simplemente "Conclusiones" y centrado, lo mismo para "Recomendaciones".
+    \input{capitulos/z_conclusiones.tex} % ¡IMPORTANTE!
+    \input{capitulos/z_recomendaciones.tex} % ¡IMPORTANTE!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Se llama a "bibliografia.tex" que renderiza la bibliografía y la añade al índice, no modificar o evitar modificar esta línea
+    \input{bibliografia.tex} % ¡IMPORTANTE!
+    
+    % Este es el apartado de Apéndices, se pueden añadir archivos de apéndice a partir de aquí
+    \appendix
+    \input{apendices/codigo.tex}
+
+\end{document}

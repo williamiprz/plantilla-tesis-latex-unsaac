@@ -1,0 +1,94 @@
+\chapter{Ejemplos de Uso}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\doublespacing % Espaciado doble, puede configurarse con: \singlespacing (1.0), \onehalfspacing (1.5) o\doublespacing (2.0).
+\raggedbottom % Para evitar el estiramiento o justificado vertical del espacio, sobretodo cuando se tienen muchas imágenes o tablas.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Inclusión de Figuras}
+
+Para incluir una imagen en el flujo de texto usar:
+
+\begin{figure}[htbp]
+	\centering
+        \caption[Este texto va al índice de figuras, no debe  omitirse y normalmente es el mismo que la descripción.]{Este texto es el pie de figura o descripción.}
+        \label{fig:ejemplo}
+	\includegraphics[width=0.6\linewidth]{example-image}
+\end{figure}
+
+La configuración [htbp] da flexibilidad a \LaTeX para ubicar la imagen de la mejor forma posible.
+
+El orden de los comandos es importante: para que el título de la figura esté arriba debe colocarse primero caption[]\{ \}. Dentro del los corchetes [] va el nombre de la figura que irá al índice de figuras, no colocar nada hará que no aparezca en el índice de figuras. Dentro de las llaves \{ \} va la descripción de la figura y aparece encima de la imagen.
+
+El comando label\{ \} genera una referencia hacia esta figura incluida, se referencia a las figuras dentro del texto mediante este label el comando ref\{\}: ... La Figura \ref{fig:ejemplo}..., el label puede ser cualquier texto, en el ejemplo se tiene "fig:ejemplo".
+
+El comando que incrusta las figuras es includegraphics[]\{ \}. Dentro de los corchetes [] se configura el ancho o alto de la figura con $width=0.6 /linewidth$ donde 0.6 representa la fracción del ancho total de la página que ocupará la imagen. En las llaves \{ \} se llama a la ubicación y nombre del archivo, de acuerdo a la estructura, las figuras deben estar en "figuras/xxxx.png". Se aceptan formatos de imagen png, jpg, jpeg, pdf, entre otros.
+
+
+
+\section{Inclusión de Tablas}
+
+Un ejemplo de utilización de tablas, se muestra a continuación:
+
+\begin{table}[htbp]
+	\centering
+	\begin{threeparttable}
+		\caption[Niveles de procesamiento para los datos de Colección 2, Nivel-1.]{Niveles de procesamiento para los datos de Colección 2, Nivel-1.}
+		\label{tabla:ejemplo}
+		\begin{tabular}{ m{5cm}  m{10cm} }
+			\hline
+			\textbf{Nivel de Procesamiento} & \textbf{Descripción} \\
+			\hline
+			Terrain Precision Correction (L1TP) & Calibrado radiométricamente y ortorrectificado usando puntos de control. \\
+			\hline
+			Systematic Terrain Correction (L1GP) & Calibrado radiométricamente, con correcciones geométricas sistemáticas y modelos de elevación digital para corrección de desplazamiento de relieve. \\
+			\hline
+			Geometric Systematic Correction (L1GS) & Calibrado radiométricamente solo con correcciones geométricas sistemáticas. \\
+			\hline
+		\end{tabular}
+		\begin{tablenotes}
+			\item Nota: Tabla modificada de \parencite{motschmann2021water}.
+		\end{tablenotes}
+	\end{threeparttable}
+\end{table}
+
+La configuración [htbp] permite a \LaTeX tener una flexibilidad al posicionar la tabla, si se desea tener más control de dónde se coloca la imagen, cambiar por [H].
+
+Igual que con las figuras, el orden de los comandos, importa. Primero se coloca caption[]\{ \}. Donde el texto entre corchetes [] es el nombre de la tabla que irá en el Índice de tablas. El texto entre llaves \{ \} es el pie de tabla que aparece encima.
+
+Se necesita una etiqueta lo label para referenciar más adelante a este cuadro, similarmente a las figuras, se las referencia con ref\{ \} ... La Tabla \ref{tabla:ejemplo}...
+
+La forma de escribir tablas es genérica, revisar la plantilla.
+
+Se puede añadir una nota al final de la tabla con el comando begin\{tablenotes\}, como se muestra en el ejemplo.
+
+
+
+\section{Inclusión de Fórmulas y Expresiones Matemáticas}
+
+Hay muchas formas de colocar expresiones matemáticas y fórmulas. Para las expresiones matemáticas dentro del texto, usar el símbolo \$ \$ dos veces y dentro el texto matemático . La siguiente línea es un ejemplo:
+
+...estas se definen a través de los 2 extremos de la recta detectada, definidos como $P(x_1, y_1$) y $P(x_2, y_2)$. Por ejemplo, se muestra...
+
+Para escribir una fórmula que debe ser enumerada, escribir las fórmulas o expresiones con el entorno begin\{equation\} y su respectivo label, como:
+
+\begin{equation}
+	I_{c}'(x, y) = \max(I_{c}(x, y), 0) \quad \text{para} \quad c = 1, 2, \dots, 6
+	\label{ecu:ejemplo}
+\end{equation}
+
+Similarmente con las figuras y tablas, también es necesario un label\{ \} que lo identifique y pueda ser referencia. ... La Ecuación \ref{ecu:ejemplo} muestra...
+
+Revisar documentación sobre cómo escribir expresiones y fórmulas matemáticas.
+
+\section{Forma de Citar}
+
+La forma de citar es mediante dos comandos, a saber: \textbf{cite} y \textbf{parencite}, ambos están en formato APA, lo que los diferencia son los paréntesis que parencite genera automáticamente alrededor de la cita en cuestión, por ejemplo:
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum metus lobortis nulla feugiat, nec gravida dui condimentum (\cite{wood2021contemporary}). Aquí se utilizó \textit{cite}, por lo que los paréntesis se tuvieron que escribir \textit{manualmente}.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit \parencite{wood2021contemporary}. Aquí se utilizó \textit{parencite}, por lo que los paréntesis se escribieron \textit{automáticamente}.
+
+Para poder citar, las referencias deben estar bien añadidas el archivo bibliografia.bib, ver los ejemplos dentro del archivo respectivo. Las citas pueden ser sacadas desde Google Scholar -> Buscar artículo -> Presionar botón Citar -> BibTex -> Copiar a bibliografia.bib
+
+

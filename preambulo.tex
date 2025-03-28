@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETES PRINCIPALES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc} % Evita problemas con caracteres especiales
+\usepackage[T1]{fontenc} % Permite manejo caracteres acentuados y caracteres especiales
+\usepackage[spanish]{babel} % Gestiona la traducción de elementos del archivo
+\usepackage{tocbibind} % Agrega lista de figuras, tablas y bibliografía al índice
+\usepackage{xcolor} % Para comando \textcolor{color}{text}
+\usepackage{float}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETE PARA MANEJO E INCLUSIÓN DE IMÁGENES %%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETES DE CONFIGURACIÓN DE MÁRGENES E INTERLINEADO %%%%%%%%
+\usepackage{geometry} % Para personalización de márgenes
+\geometry{
+	left=2.54cm,
+	right=2.54cm,
+	top=2.54cm,
+	bottom=2.54cm
+}
+\usepackage{setspace} % Gestión de interlineado, opciones: \singlespacing, \onehalfspacing o\doublespacing.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONFIGURACIÓN DE PÁGINAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pdflscape} % Configuración de página para manejar gráficos o tablas amplias (para girar las páginas horizontalmente)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETES Y CONFIGURACIONES DE TÍTULOS, PIE DE FIGURAS Y TABLAS
+\usepackage{titlesec} % Permite la personalización de títulos y secciones
+\usepackage{caption} % Permite la personalización de títulos de figuras y tablas
+\usepackage{subcaption} % Permite la inclusión de subtítulos en una figura principal
+% Si no se tienen tablas ni figuras aún, los comandos \captionsetuo darán mensaje de advertencia, los cuales desaparecerán cuando se coloquen figuras y tablas en el cuerpo
+\captionsetup[figure]{justification=RaggedRight,labelsep=newline,labelfont=bf, textfont=it, position=top,singlelinecheck=false}
+\captionsetup[table]{justification=RaggedRight,labelsep=newline,labelfont=bf,textfont=it,position=top,singlelinecheck=false}
+% Configuración de índice de Tablas
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de Tablas}}
+% Cómo se describiran las tablas: Tabla, Cuadro, etc. Modificar de acuerdo a su necesidad
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+\usepackage{hyperref} % Manejo de hiperreferencias
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETES PARA MANEJO DE TABLAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{array} % Permite la gestión de tablas
+\usepackage{multirow} % Permite la configuración de multifila
+\usepackage{threeparttable} % Tablas con notas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETE DE RENDERIZACIÓN DE CAJAS PARA TEXTO %%%%%%%%%%%%%%%%
+\usepackage{tcolorbox} % Cajas de texto personalizadas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAQUETES PARA USO DE MATEMÁTICAS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath, amssymb}
+\usepackage{newtxtext,newtxmath} % Modifica la fuente a una parecida a Times New Roman
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONFIGURACIÓN PARA INCUSIÓN DE CÓDIGOS EN EL TEXTO %%%%%%%%%%
+\usepackage{listings} % Para código fuente
+\usepackage{inconsolata} % Fuente monoespaciada
+\lstset{
+	language=Python,
+	backgroundcolor=\color{white},
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\color{blue}\bfseries,
+	stringstyle=\color{red},
+	commentstyle=\color{green!50!black},
+	frame=single,
+	breaklines=true,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	tabsize=4
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CONFIGURACIÓN Y GESTIÓN DE BIBLIOGRAFÍA CON COMPILADOR BIBLATEX
+\usepackage[style=apa, backend=biber]{biblatex}
+\usepackage[babel]{csquotes} % Manejo avanzado de citas
+% Mapeo de bibliografía estilo APA en español
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\DefineBibliographyExtras{spanish}{
+	\renewcommand*{\finalnamedelim}{\addspace y\space}
+	\renewcommand*{\multinamedelim}{\addcomma\space}
+	\renewcommand*{\multilistdelim}{\addcomma\space}
+}
+\makeatletter
+\DefineBibliographyExtras{spanish}
+{
+	\setcounter{smartand}{1}
+	\let\lbx@finalnamedelim=\lbx@es@smartand
+	\let\lbx@finallistdelim=\lbx@es@smartand
+}
+\makeatother  
+% Añadir archivo de bibliografía
+\addbibresource{bibliografia.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Numeración de páginas %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}
